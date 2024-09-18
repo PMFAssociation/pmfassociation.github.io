@@ -99,6 +99,24 @@
             }
         }
 
+        /* Dismissible message styles */
+        .dismissible-message {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: #f3f4f6;
+            border-bottom: 1px solid #e5e7eb;
+            padding: 1rem;
+            text-align: center;
+            z-index: 50;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .dismissible-message.hidden {
+            transform: translateY(-100%);
+        }
+
         @media (max-width: 640px) {
             .btn-primary {
                 padding: 10px 20px;
@@ -112,6 +130,13 @@
         <div class="swirl" style="width: 600px; height: 600px; background-color: #000; left: -10%; top: -10%;"></div>
         <div class="swirl" style="width: 500px; height: 500px; background-color: #222; right: -5%; bottom: -5%;"></div>
         <div class="swirl" style="width: 400px; height: 400px; background-color: #111; left: 30%; top: 40%;"></div>
+    </div>
+
+    <div id="dismissibleMessage" class="dismissible-message">
+        <p class="text-sm sm:text-base">
+            <strong>Note:</strong> The Progressive Malayalam Filmmakers' Association is currently in its conceptual phase. We are actively gathering input and expressions of interest as we shape the structure and goals of this initiative. All aspects, including leadership and organization, are open for discussion.
+        </p>
+        <button id="closeMessage" class="mt-2 text-sm font-medium text-gray-600 hover:text-gray-900">Dismiss</button>
     </div>
 
     <header class="bg-white bg-opacity-90 shadow-sm fixed w-full z-10">
@@ -137,8 +162,9 @@
             <div class="container mx-auto px-4 sm:px-6">
                 <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">About Us</h2>
                 <div class="animate-fade-in max-w-3xl">
-                    <p class="mb-4">The Progressive Malayalam Filmmakers' Association (PMFA) is a collective of visionary producers, directors, and technicians dedicated to revolutionizing the Malayalam film industry.</p>
-                    <p>Our association serves as a platform for collaboration, innovation, and advocacy, ensuring that Malayalam cinema continues to thrive and make its mark on the global stage.</p>
+                    <p class="mb-4">The Progressive Malayalam Filmmakers' Association (PMFA) is an inclusive collective that aims to represent and support all professionals within the Malayalam film industry. From directors and producers to technicians, artists, and support staff, we embrace the diverse talents that contribute to the richness of our cinema.</p>
+                    <p>Our association is founded on the principles of equality, fairness, and mutual respect. We strive to create a platform where every voice is heard, regardless of background or position. By fostering collaboration and advocating for the rights and well-being of all industry members, we aim to build a more equitable and innovative film community.</p>
+                    <p class="mt-4">Together, we work towards elevating Malayalam cinema on the global stage while ensuring that our industry's growth is inclusive, ethical, and sustainable.</p>
                 </div>
             </div>
         </section>
@@ -197,6 +223,11 @@
 
         window.addEventListener('scroll', animateOnScroll);
         window.addEventListener('load', animateOnScroll);
+
+        // Dismissible message functionality
+        document.getElementById('closeMessage').addEventListener('click', function() {
+            document.getElementById('dismissibleMessage').classList.add('hidden');
+        });
     </script>
 </body>
 </html>
