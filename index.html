@@ -6,17 +6,16 @@
     <title>Progressive Malayalam Filmmakers' Association</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+Pro:wght@300;400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
 
         :root {
-            --primary-color: #1a237e;
-            --accent-color: #ffa000;
-            --bg-color: #e8f5e9;
             --text-color: #333;
+            --bg-color: #fff;
+            --accent-color: #000;
         }
 
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-color);
             line-height: 1.6;
@@ -24,15 +23,14 @@
         }
 
         h1, h2, h3 {
-            font-family: 'Playfair Display', serif;
-            color: var(--primary-color);
+            color: var(--accent-color);
         }
 
         .btn-primary {
             background-color: var(--accent-color);
-            color: var(--primary-color);
+            color: var(--bg-color);
             padding: 12px 24px;
-            border-radius: 4px;
+            border-radius: 9999px;
             text-decoration: none;
             transition: all 0.3s;
             font-weight: 600;
@@ -41,8 +39,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #ff6f00;
-            transform: translateY(-2px);
+            opacity: 0.8;
         }
 
         .section-title {
@@ -61,33 +58,6 @@
             background-color: var(--accent-color);
         }
 
-        .van-gogh-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background-color: var(--bg-color);
-            overflow: hidden;
-        }
-
-        .swirl {
-            position: absolute;
-            border-radius: 50%;
-            opacity: 0.1;
-            animation: swirlAnimation 20s infinite linear;
-        }
-
-        @keyframes swirlAnimation {
-            0% {
-                transform: rotate(0deg) translateX(0) translateY(0);
-            }
-            100% {
-                transform: rotate(360deg) translateX(100px) translateY(100px);
-            }
-        }
-
         .animate-fade-in {
             opacity: 0;
             transform: translateY(20px);
@@ -99,13 +69,37 @@
             transform: translateY(0);
         }
 
+        /* Van Gogh-inspired background animations */
+        .van-gogh-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .swirl {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.03;
+            animation: swirlAnimation 30s infinite linear;
+        }
+
+        @keyframes swirlAnimation {
+            0% {
+                transform: rotate(0deg) translateX(0) translateY(0) scale(1);
+            }
+            50% {
+                transform: rotate(180deg) translateX(100px) translateY(100px) scale(1.2);
+            }
+            100% {
+                transform: rotate(360deg) translateX(0) translateY(0) scale(1);
+            }
+        }
+
         @media (max-width: 640px) {
-            h1 {
-                font-size: 2rem !important;
-            }
-            h2 {
-                font-size: 1.5rem !important;
-            }
             .btn-primary {
                 padding: 10px 20px;
                 font-size: 0.9rem;
@@ -115,14 +109,14 @@
 </head>
 <body class="text-base sm:text-lg">
     <div class="van-gogh-bg">
-        <div class="swirl" style="width: 300px; height: 300px; background-color: #ffd54f; left: 10%; top: 20%;"></div>
-        <div class="swirl" style="width: 200px; height: 200px; background-color: #4caf50; right: 15%; bottom: 10%;"></div>
-        <div class="swirl" style="width: 250px; height: 250px; background-color: #29b6f6; left: 30%; bottom: 30%;"></div>
+        <div class="swirl" style="width: 600px; height: 600px; background-color: #000; left: -10%; top: -10%;"></div>
+        <div class="swirl" style="width: 500px; height: 500px; background-color: #222; right: -5%; bottom: -5%;"></div>
+        <div class="swirl" style="width: 400px; height: 400px; background-color: #111; left: 30%; top: 40%;"></div>
     </div>
 
-    <header class="bg-white bg-opacity-90 shadow-md fixed w-full z-10">
-        <nav class="container mx-auto px-4 sm:px-6 py-3 flex justify-between items-center">
-            <h1 class="text-xl sm:text-2xl font-bold text-primary">PMFA</h1>
+    <header class="bg-white bg-opacity-90 shadow-sm fixed w-full z-10">
+        <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
+            <h1 class="text-xl sm:text-2xl font-bold">PMFA</h1>
             <div class="flex items-center">
                 <a href="#join" class="btn-primary text-sm">Join Us</a>
                 <a href="#" id="langToggle" class="ml-4 sm:ml-6 text-gray-600 hover:text-gray-800">മലയാളം</a>
@@ -130,75 +124,58 @@
         </nav>
     </header>
 
-    <main class="pt-16">
-        <section class="text-primary py-20 sm:py-32">
+    <main class="pt-20">
+        <section class="py-20 sm:py-32">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h1 class="text-4xl sm:text-5xl font-bold mb-4 animate-fade-in">Progressive Malayalam Filmmakers' Association</h1>
-                <p class="text-lg sm:text-xl mb-8 animate-fade-in">Shaping the future of Malayalam cinema through innovation, ethics, and collaboration</p>
+                <h1 class="text-4xl sm:text-5xl font-bold mb-6 animate-fade-in">Progressive Malayalam Filmmakers' Association</h1>
+                <p class="text-xl sm:text-2xl mb-8 animate-fade-in max-w-3xl mx-auto">Shaping the future of Malayalam cinema through innovation, ethics, and collaboration</p>
                 <a href="#join" class="btn-primary animate-fade-in">Join the Movement</a>
             </div>
         </section>
 
-        <section id="about" class="py-16 sm:py-20 bg-white bg-opacity-80">
+        <section id="about" class="py-20 bg-gray-50 bg-opacity-80">
             <div class="container mx-auto px-4 sm:px-6">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title animate-fade-in">About Us</h2>
-                <div class="animate-fade-in">
-                    <p class="mb-4">The Progressive Malayalam Filmmakers' Association (PMFA) is a collective of visionary producers, directors, and technicians dedicated to revolutionizing the Malayalam film industry. We recognize the immense potential of our cinema and are committed to fostering an environment that nurtures creativity, upholds ethical practices, and embraces technological advancements.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">About Us</h2>
+                <div class="animate-fade-in max-w-3xl">
+                    <p class="mb-4">The Progressive Malayalam Filmmakers' Association (PMFA) is a collective of visionary producers, directors, and technicians dedicated to revolutionizing the Malayalam film industry.</p>
                     <p>Our association serves as a platform for collaboration, innovation, and advocacy, ensuring that Malayalam cinema continues to thrive and make its mark on the global stage.</p>
                 </div>
             </div>
         </section>
 
-        <section id="mission" class="py-16 sm:py-20 bg-white bg-opacity-60">
+        <section id="mission" class="py-20">
             <div class="container mx-auto px-4 sm:px-6">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title animate-fade-in">Our Mission</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-                    <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md animate-fade-in">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">Our Mission</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
+                    <div>
                         <h3 class="text-xl font-bold mb-4">Ethical Responsibility</h3>
-                        <p>Ensure all filmmaking practices are rooted in ethical values, promoting fairness, integrity, and accountability in every production.</p>
+                        <p>Ensure all filmmaking practices are rooted in ethical values, promoting fairness and integrity.</p>
                     </div>
-                    <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md animate-fade-in">
+                    <div>
                         <h3 class="text-xl font-bold mb-4">Systemic Modernization</h3>
-                        <p>Modernize industry operations by implementing transparent legal frameworks, standardizing contracts, and adopting global best practices.</p>
+                        <p>Modernize industry operations by implementing transparent frameworks and global best practices.</p>
                     </div>
-                    <div class="bg-white bg-opacity-90 p-6 rounded-lg shadow-md animate-fade-in">
+                    <div>
                         <h3 class="text-xl font-bold mb-4">Workforce Empowerment</h3>
-                        <p>Empower all individuals in the industry by protecting their rights and providing access to professional development programs and resources.</p>
+                        <p>Empower all individuals in the industry by protecting their rights and fostering growth.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="objectives" class="py-16 sm:py-20 bg-white bg-opacity-80">
-            <div class="container mx-auto px-4 sm:px-6">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title animate-fade-in">Key Objectives</h2>
-                <div class="grid grid-cols-1 sm:grid-cols-2 gap-6 sm:gap-8 animate-fade-in">
-                    <div>
-                        <h3 class="text-xl font-bold mb-4">Equality and Social Justice</h3>
-                        <p>Create an inclusive environment free from discrimination, ensuring equal opportunity for all members of the industry, including mentorship programs for underrepresented voices.</p>
-                    </div>
-                    <div>
-                        <h3 class="text-xl font-bold mb-4">Sustainability and Innovation</h3>
-                        <p>Encourage sustainable practices in film production and foster innovation through the adoption of new technologies, creative storytelling methods, and modern distribution platforms.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="join" class="py-16 sm:py-20 bg-white bg-opacity-80">
+        <section id="join" class="py-20 bg-gray-50 bg-opacity-80">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 section-title animate-fade-in">Join Our Movement</h2>
-                <p class="mb-8 max-w-2xl mx-auto animate-fade-in">Are you a professional working in the Malayalam film industry? Be part of the transformation in Malayalam cinema. Your voice and vision matter. Together, we can elevate our industry to new heights.</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">Join Our Movement</h2>
+                <p class="mb-8 max-w-2xl mx-auto animate-fade-in">Are you a professional working in the Malayalam film industry? Be part of the transformation in Malayalam cinema. Your voice and vision matter.</p>
                 <a href="#" class="btn-primary animate-fade-in">Express Interest to Join</a>
                 <p class="mt-4 text-sm text-gray-600 animate-fade-in">For film industry professionals only</p>
             </div>
         </section>
     </main>
 
-    <footer class="bg-[#000033] py-10"> <!-- Darkest blue footer -->
+    <footer class="bg-black text-white py-10">
         <div class="container mx-auto px-4 sm:px-6 text-center">
-            <p class="mb-4 text-white font-semibold">&copy; 2024 Progressive Malayalam Filmmakers' Association. All rights reserved.</p>
-            <p class="text-white font-semibold">Contact: info@pmfa.org | +91 XXX XXX XXXX</p>
+            <p>&copy; 2024 Progressive Malayalam Filmmakers' Association. All rights reserved.</p>
         </div>
     </footer>
 
