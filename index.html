@@ -101,20 +101,18 @@
 
         /* Dismissible message styles */
         .dismissible-message {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
             background-color: #f3f4f6;
-            border-bottom: 1px solid #e5e7eb;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.375rem;
             padding: 1rem;
+            margin-top: 2rem;
             text-align: center;
-            z-index: 50;
-            transition: transform 0.3s ease-in-out;
+            transition: opacity 0.3s ease-in-out;
         }
 
         .dismissible-message.hidden {
-            transform: translateY(-100%);
+            opacity: 0;
+            pointer-events: none;
         }
 
         @media (max-width: 640px) {
@@ -132,16 +130,11 @@
         <div class="swirl" style="width: 400px; height: 400px; background-color: #111; left: 30%; top: 40%;"></div>
     </div>
 
-    <div id="dismissibleMessage" class="dismissible-message">
-        <p class="text-sm sm:text-base">
-            <strong>Note:</strong> The Progressive Malayalam Filmmakers' Association is currently in its conceptual phase. We are actively gathering input and expressions of interest as we shape the structure and goals of this initiative. All aspects, including leadership and organization, are open for discussion.
-        </p>
-        <button id="closeMessage" class="mt-2 text-sm font-medium text-gray-600 hover:text-gray-900">Dismiss</button>
-    </div>
-
     <header class="bg-white bg-opacity-90 shadow-sm fixed w-full z-10">
         <nav class="container mx-auto px-4 sm:px-6 py-4 flex justify-between items-center">
-            <h1 class="text-xl sm:text-2xl font-bold">PMFA</h1>
+            <a href="#" class="flex items-center">
+                <img src="img/logo.png" alt="PMFA Logo" class="h-10 w-auto">
+            </a>
             <div class="flex items-center">
                 <a href="#join" class="btn-primary text-sm">Join Us</a>
                 <a href="#" id="langToggle" class="ml-4 sm:ml-6 text-gray-600 hover:text-gray-800">മലയാളം</a>
@@ -155,6 +148,12 @@
                 <h1 class="text-4xl sm:text-5xl font-bold mb-6 animate-fade-in">Progressive Malayalam Filmmakers' Association</h1>
                 <p class="text-xl sm:text-2xl mb-8 animate-fade-in max-w-3xl mx-auto">Shaping the future of Malayalam cinema through innovation, ethics, and collaboration</p>
                 <a href="#join" class="btn-primary animate-fade-in">Join the Movement</a>
+                <div id="dismissibleMessage" class="dismissible-message animate-fade-in">
+                    <p class="text-sm sm:text-base">
+                        <strong>Note:</strong> The Progressive Malayalam Filmmakers' Association is currently in its conceptual phase. We are actively gathering input and expressions of interest as we shape the structure and goals of this initiative. All aspects, including leadership and organization, are open for discussion.
+                    </p>
+                    <button id="closeMessage" class="mt-2 text-sm font-medium text-gray-600 hover:text-gray-900">Dismiss</button>
+                </div>
             </div>
         </section>
 
