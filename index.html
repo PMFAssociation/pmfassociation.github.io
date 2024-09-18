@@ -5,9 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Progressive Malayalam Filmmakers' Association</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Manjari:wght@100;400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-
         :root {
             --text-color: #333;
             --bg-color: #fff;
@@ -20,6 +19,10 @@
             color: var(--text-color);
             line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        body.ml {
+            font-family: 'Manjari', sans-serif;
         }
 
         h1, h2, h3 {
@@ -115,6 +118,23 @@
             pointer-events: none;
         }
 
+        #langToggle {
+            font-family: 'Inter', sans-serif;
+        }
+
+        #langToggle .ml-text {
+            font-family: 'Manjari', sans-serif;
+        }
+
+        .lang-text {
+            display: inline-block;
+        }
+
+        body:not(.ml) .en-text,
+        body.ml .ml-text {
+            display: none;
+        }
+
         @media (max-width: 640px) {
             .btn-primary {
                 padding: 10px 20px;
@@ -136,8 +156,11 @@
                 <img src="img/logo.png" alt="PMFA Logo" class="h-10 w-auto">
             </a>
             <div class="flex items-center">
-                <a href="#join" class="btn-primary text-sm">Join Us</a>
-                <a href="#" id="langToggle" class="ml-4 sm:ml-6 text-gray-600 hover:text-gray-800">മലയാളം</a>
+                <a href="#join" class="btn-primary text-sm" data-translate="join_us">Join Us</a>
+                <a href="#" id="langToggle" class="ml-4 sm:ml-6 text-gray-600 hover:text-gray-800">
+                    <span class="lang-text en-text">English</span>
+                    <span class="lang-text ml-text">മലയാളം</span>
+                </a>
             </div>
         </nav>
     </header>
@@ -146,43 +169,43 @@
         <section class="py-20 sm:py-32">
             <div class="container mx-auto px-4 sm:px-6 text-center">
                 <img src="img/logo.png" alt="Progressive Malayalam Filmmakers' Association" class="mx-auto mb-8 max-w-md w-full animate-fade-in">
-                <p class="text-xl sm:text-2xl mb-8 animate-fade-in max-w-3xl mx-auto">Shaping the future of Malayalam cinema through innovation, ethics, and collaboration</p>
-                <a href="#join" class="btn-primary animate-fade-in">Join the Movement</a>
+                <p class="text-xl sm:text-2xl mb-8 animate-fade-in max-w-3xl mx-auto" data-translate="hero_text">Shaping the future of Malayalam cinema through innovation, ethics, and collaboration</p>
+                <a href="#join" class="btn-primary animate-fade-in" data-translate="join_movement">Join the Movement</a>
                 <div id="dismissibleMessage" class="dismissible-message animate-fade-in">
-                    <p class="text-sm sm:text-base">
+                    <p class="text-sm sm:text-base" data-translate="note">
                         <strong>Note:</strong> The Progressive Malayalam Filmmakers' Association is currently in its conceptual phase. We are actively gathering input and expressions of interest as we shape the structure and goals of this initiative. All aspects, including leadership and organization, are open for discussion.
                     </p>
-                    <button id="closeMessage" class="mt-2 text-sm font-medium text-gray-600 hover:text-gray-900">Dismiss</button>
+                    <button id="closeMessage" class="mt-2 text-sm font-medium text-gray-600 hover:text-gray-900" data-translate="dismiss">Dismiss</button>
                 </div>
             </div>
         </section>
 
         <section id="about" class="py-20 bg-gray-50 bg-opacity-80">
             <div class="container mx-auto px-4 sm:px-6">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">About Us</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in" data-translate="about_us">About Us</h2>
                 <div class="animate-fade-in max-w-3xl">
-                    <p class="mb-4">The Progressive Malayalam Filmmakers' Association (PMFA) is an inclusive collective that aims to represent and support all professionals within the Malayalam film industry. From directors and producers to technicians, artists, and support staff, we embrace the diverse talents that contribute to the richness of our cinema.</p>
-                    <p>Our association is founded on the principles of equality, fairness, and mutual respect. We strive to create a platform where every voice is heard, regardless of background or position. By fostering collaboration and advocating for the rights and well-being of all industry members, we aim to build a more equitable and innovative film community.</p>
-                    <p class="mt-4">Together, we work towards elevating Malayalam cinema on the global stage while ensuring that our industry's growth is inclusive, ethical, and sustainable.</p>
+                    <p class="mb-4" data-translate="about_text_1">The Progressive Malayalam Filmmakers' Association (PMFA) is an inclusive collective that aims to represent and support all professionals within the Malayalam film industry. From directors and producers to technicians, artists, and support staff, we embrace the diverse talents that contribute to the richness of our cinema.</p>
+                    <p data-translate="about_text_2">Our association is founded on the principles of equality, fairness, and mutual respect. We strive to create a platform where every voice is heard, regardless of background or position. By fostering collaboration and advocating for the rights and well-being of all industry members, we aim to build a more equitable and innovative film community.</p>
+                    <p class="mt-4" data-translate="about_text_3">Together, we work towards elevating Malayalam cinema on the global stage while ensuring that our industry's growth is inclusive, ethical, and sustainable.</p>
                 </div>
             </div>
         </section>
 
         <section id="mission" class="py-20">
             <div class="container mx-auto px-4 sm:px-6">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">Our Mission</h2>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in" data-translate="our_mission">Our Mission</h2>
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 animate-fade-in">
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Ethical Responsibility</h3>
-                        <p>Ensure all filmmaking practices are rooted in ethical values, promoting fairness and integrity.</p>
+                        <h3 class="text-xl font-bold mb-4" data-translate="ethical_responsibility">Ethical Responsibility</h3>
+                        <p data-translate="ethical_text">Ensure all filmmaking practices are rooted in ethical values, promoting fairness and integrity.</p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Systemic Modernization</h3>
-                        <p>Modernize industry operations by implementing transparent frameworks and global best practices.</p>
+                        <h3 class="text-xl font-bold mb-4" data-translate="systemic_modernization">Systemic Modernization</h3>
+                        <p data-translate="modernization_text">Modernize industry operations by implementing transparent frameworks and global best practices.</p>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold mb-4">Workforce Empowerment</h3>
-                        <p>Empower all individuals in the industry by protecting their rights and fostering growth.</p>
+                        <h3 class="text-xl font-bold mb-4" data-translate="workforce_empowerment">Workforce Empowerment</h3>
+                        <p data-translate="empowerment_text">Empower all individuals in the industry by protecting their rights and fostering growth.</p>
                     </div>
                 </div>
             </div>
@@ -190,24 +213,44 @@
 
         <section id="join" class="py-20 bg-gray-50 bg-opacity-80">
             <div class="container mx-auto px-4 sm:px-6 text-center">
-                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in">Join Our Movement</h2>
-                <p class="mb-8 max-w-2xl mx-auto animate-fade-in">Are you a professional working in the Malayalam film industry? Be part of the transformation in Malayalam cinema. Your voice and vision matter.</p>
-                <a href="#" class="btn-primary animate-fade-in">Express Interest to Join</a>
-                <p class="mt-4 text-sm text-gray-600 animate-fade-in">For film industry professionals only</p>
+                <h2 class="text-3xl sm:text-4xl font-bold mb-8 section-title animate-fade-in" data-translate="join_movement">Join Our Movement</h2>
+                <p class="mb-8 max-w-2xl mx-auto animate-fade-in" data-translate="join_text">Are you a professional working in the Malayalam film industry? Be part of the transformation in Malayalam cinema. Your voice and vision matter.</p>
+                <a href="#" class="btn-primary animate-fade-in" data-translate="express_interest">Express Interest to Join</a>
+                <p class="mt-4 text-sm text-gray-600 animate-fade-in" data-translate="for_professionals">For film industry professionals only</p>
             </div>
         </section>
     </main>
 
     <footer class="bg-black text-white py-10">
         <div class="container mx-auto px-4 sm:px-6 text-center">
-            <p>&copy; 2024 Progressive Malayalam Filmmakers' Association. All rights reserved.</p>
+            <p data-translate="copyright">&copy; 2024 Progressive Malayalam Filmmakers' Association. All rights reserved.</p>
         </div>
     </footer>
 
     <script>
+        let currentLang = 'en';
+        const translations = {};
+
+        async function loadTranslations() {
+            const response = await fetch('translations.json');
+            const data = await response.json();
+            Object.assign(translations, data);
+        }
+
+        function translatePage() {
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const key = element.getAttribute('data-translate');
+                if (translations[currentLang] && translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+            document.body.className = currentLang === 'ml' ? 'ml' : '';
+        }
+
         document.getElementById('langToggle').addEventListener('click', function(e) {
             e.preventDefault();
-            alert('Switching to Malayalam version (to be implemented)');
+            currentLang = currentLang === 'en' ? 'ml' : 'en';
+            translatePage();
         });
 
         function animateOnScroll() {
@@ -221,7 +264,10 @@
         }
 
         window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('load', async () => {
+            await loadTranslations();
+            animateOnScroll();
+        });
 
         // Dismissible message functionality
         document.getElementById('closeMessage').addEventListener('click', function() {
